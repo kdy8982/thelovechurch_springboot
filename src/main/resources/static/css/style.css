@@ -275,6 +275,7 @@ footer {
     color: #fff;
 }
 #board_banner.notice {
+    min-height: 250px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url("../img/gongbubang.jpeg");
     background-position: 0% 5%;
 }
@@ -344,6 +345,13 @@ ul.paging li {
     position: relative;
     display: inline-block;
     margin: 0px 20px;
+}
+#introduce_content ul li:before {
+    position: absolute;
+    left: -24px;
+    width: 0.5px;
+    content: "|";
+    color: #ebebeb;
 }
 #introduce_content ul li:after {
     position: absolute;
@@ -428,8 +436,8 @@ ul.paging li {
 }
 .write_box {
     width: 700px;
-    margin: 0 auto;
     height: inherit;
+    margin: 0 auto;
 }
 
 .write_box label {
@@ -438,14 +446,15 @@ ul.paging li {
 }
 .write_box input, .write_box textarea {
     display: block;
+    box-sizing: border-box;
+    width: 100%;
     padding: 12px;
+    resize: none;
+    cursor: pointer;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 100%;
-    box-sizing: border-box;
-    resize: none;
 }
-.write_box textarea{
+.write_box textarea {
     height: 400px;
 }
 #btn-save {
