@@ -1,4 +1,4 @@
-package kr.co.thelovechruch_springboot.web.dto;
+package kr.co.thelovechruch_springboot.web.dto.notice;
 
 import kr.co.thelovechruch_springboot.domain.notice.Notice;
 import lombok.Builder;

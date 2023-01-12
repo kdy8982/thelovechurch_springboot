@@ -1,10 +1,14 @@
 package kr.co.thelovechruch_springboot.service.notice;
 
 import kr.co.thelovechruch_springboot.domain.notice.NoticeRepository;
-import kr.co.thelovechruch_springboot.web.dto.NoticeSaveRequestDto;
+import kr.co.thelovechruch_springboot.web.dto.notice.NoticeListResponseDto;
+import kr.co.thelovechruch_springboot.web.dto.notice.NoticeSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -14,5 +18,13 @@ public class NoticeService {
     @Transactional
     public Long save(NoticeSaveRequestDto requestDto) {
         return noticeRepository.save(requestDto.toEntity()).getId();
+    }
+
+    public List<NoticeListResponseDto> findAll() {
+
+        System.out.println();
+        return noticeRepository.findAllDesc().stream()
+                .map(NoticeListResponseDto::new)
+                .collect(Collectors.toList());
     }
 }

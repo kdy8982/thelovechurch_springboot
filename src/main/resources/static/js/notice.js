@@ -9,7 +9,8 @@ var notice = {
                 })
 
 
-                $("#btn-save").on("click", function () {
+                $("#btn-save").on("click", function (e) {
+                    e.preventDefault();
                     _this.save();
                 })
             })

@@ -1,7 +1,7 @@
 package kr.co.thelovechruch_springboot.web;
 
 import kr.co.thelovechruch_springboot.service.notice.NoticeService;
-import kr.co.thelovechruch_springboot.web.dto.NoticeSaveRequestDto;
+import kr.co.thelovechruch_springboot.web.dto.notice.NoticeSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

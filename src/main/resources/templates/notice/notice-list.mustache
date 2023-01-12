@@ -13,16 +13,14 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>안녕하세요</td>
-                <td>홍길동</td>
-                <td>2017-05-04</td>
-            </tr>
-            <tr>
-                <td>안녕하세요</td>
-                <td>홍길동</td>
-                <td>2017-05-04</td>
-            </tr>
+
+            {{#notices}}
+                <tr>
+                    <td class="board_title">{{title}}</td>
+                    <td class="board_writer">{{author}}</td>
+                    <td class="board_date">{{createdDate}}</td>
+                </tr>
+            {{/notices}}
             </tbody>
         </table>
         <ul class="paging">
@@ -39,8 +37,9 @@
             <li><a href="#">10</a></li>
             <li><a href="#">다음 ></a></li>
         </ul>
-        <button class="bttn-minimal bttn-xs bttn-default flr" onclick="location.href='notice/new'">새 글 작성</button>
-<!--        <a class="bttn-bordered bttn-md" href="notice/new">새 글 작성</a>-->
+        <button class="bttn-minimal bttn-xs bttn-default flr" onclick="location.href='notice/new'">새 글 작성
+        </button>
+        <!--        <a class="bttn-bordered bttn-md" href="notice/new">새 글 작성</a>-->
     </div>
 </div>
 {{>layout/footer}}

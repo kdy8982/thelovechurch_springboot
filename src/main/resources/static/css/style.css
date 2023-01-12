@@ -86,7 +86,7 @@ body {
     font-weight: 600;
     display: block;
     padding: 24px 30px;
-    transition: all .5s ease;
+    transition: background-color .5s ease;
     color: #333;
 }
 .header .menu_pc li a:hover {
