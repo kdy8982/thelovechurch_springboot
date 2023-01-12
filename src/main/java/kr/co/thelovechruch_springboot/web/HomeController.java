@@ -1,4 +1,4 @@
-package kr.co.thelovechruch_springboot.controller;
+package kr.co.thelovechruch_springboot.web;
 
 
 import org.springframework.stereotype.Controller;

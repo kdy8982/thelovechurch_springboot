@@ -28,7 +28,10 @@ body {
     /*bottom: 0;*/
     width: 100%;
     border-bottom: 1px solid #bdbdbd;
-    background-color: rgb(88 88 88);
+    /*background-color: rgb(88 88 88);*/
+}
+#contents .container {
+    background: #676766;
 }
 
 /* 가운데 영역 */
@@ -148,7 +151,7 @@ body {
     line-height: 150px;
     width: 150px;
     height: 150px;
-    margin-top: 13px;
+    margin-top: 27px;
     text-align: center;
     color: #fff;
 }
@@ -251,25 +254,206 @@ body {
 
 /* 푸터 */
 footer {
+    margin-top: auto;
     padding: 8px 50px;
     text-align: center;
     border-top: 1px solid #bdbdbd;
-
 }
 
 /* 게시판 */
 #board_banner {
     height: 250px;
     border-bottom: 1px solid #ccc;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#board_banner h1 {
+    font-size: 30px;
+    line-height: 250px;
+    text-align: center;
+    letter-spacing: 5px;
+    color: #fff;
+}
+#board_banner.notice {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url("../img/gongbubang.jpeg");
+    background-position: 0% 5%;
 }
 #board_content {
     flex: 1;
 }
 #board_content table {
     width: 100%;
+    margin-top: 30px;
 }
-#board_content table {
+#board_content table .board_title {
+    width: 60%;
+}
+#board_content table .board_writer {
+    width: 20%;
+}
+#board_content table .board_date {
+    width: 20%;
+}
+#board_content table th {
+    background-color: #eeeeee;
+}
+#board_content table tr {
+    height: 30px;
+    text-align: center;
+}
+ul.paging {
+    margin-top: 20px;
+    text-align: center;
+}
+ul.paging li {
+    display: inline-block;
+    margin: 0px 5px;
+}
 
+/* introduce; 교회 소개 */
+#introduce_banner {
+    min-height: 250px;
+    border-bottom: 1px solid #ccc;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#introduce_banner h1 {
+    font-size: 30px;
+    line-height: 250px;
+    text-align: center;
+    letter-spacing: 5px;
+    color: #fff;
+}
+#introduce_banner.introduce {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url("../img/ministry2.jpeg");
+    background-position: 0% 77%;
+}
+#introduce_content {
+    flex: 1;
+}
+#introduce_content ul {
+    margin: 20px 0px;
+    text-align: center;
+}
+#introduce_content ul li.active a {
+    color: #222;
+}
+#introduce_content ul li {
+    font-size: 20px;
+    font-weight: 500;
+    position: relative;
+    display: inline-block;
+    margin: 0px 20px;
+}
+#introduce_content ul li:after {
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0px;
+    height: 2px;
+    margin: 5px 0 0;
+    content: "";
+    transition: all 0.2s ease-in-out;
+    transition-duration: 0.3s;
+    opacity: 0;
+    background-color: #145879FF;
+}
+#introduce_content ul li:hover:after {
+    width: 100%;
+    opacity: 1;
+}
+#introduce_content ul li a {
+    color: #848484;
+}
+#introduce_content ul li:hover a {
+    color: #222;
+}
+#introduce_content .introduce_box.active {
+    display: block;
+}
+#introduce_content .introduce_box {
+    display: none;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding: 20px 35px;
+    border-radius: 5px;
+    background: #efefef;
+}
+#introduce_content .introduce_box h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    color: #222;
+    border-bottom: 1px solid #222;
+}
+#introduce_content .introduce_box .vision_wrap {
+    margin-top: 22px;
+    text-align: center;
+}
+#introduce_content .introduce_box span {
+    display: inline-block;
+    margin-right: 30px;
+}
+#introduce_content .introduce_box img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+#introduce_content .introduce_box img.logo {
+    width: 150px;
+}
+#introduce_content .introduce_box img.pastor {
+    float: right;
+    width: 150px;
+    margin-top: 45px;
+}
+#introduce_content .introduce_box .vision_wrap p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+#introduce_content .introduce_box .vision_wrap p:last-child {
+    margin-bottom: 0;
+}
+#introduce_content .introduce_box.worship .worship_wrap {
+    margin-bottom: 10px;
+}
+#introduce_content .introduce_box.worship .worship_wrap span {
+    font-weight: 600;
+}
+
+/* 글쓰기 */
+#write {
+    margin: 15px 0;
+}
+.write_box {
+    width: 700px;
+    margin: 0 auto;
+    height: inherit;
+}
+
+.write_box label {
+    display: block;
+
+}
+.write_box input, .write_box textarea {
+    display: block;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    resize: none;
+}
+.write_box textarea{
+    height: 400px;
+}
+#btn-save {
+    float: right;
+}
+.form-group {
+    margin-bottom: 10px;
+}
 
 /* mediaquery */
 /* 화면 너비 0~1220px */
@@ -319,7 +503,6 @@ footer {
     #contents {
         border-bottom: none;
     }
-
 }
 
 /* 화면 너비 0~768px */
