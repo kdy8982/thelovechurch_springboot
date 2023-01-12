@@ -386,7 +386,7 @@ ul.paging li {
     margin-bottom: 20px;
     padding-left: 10px;
     color: #222;
-    border-bottom: 1px solid #222;
+    border-bottom: 2px solid #145879FF;
 }
 #introduce_content .introduce_box .vision_wrap {
     margin-top: 22px;

@@ -158,3 +158,6 @@ button {
 .hidden {
     display:none;
 }
+.flr {
+    float: right;
+}
