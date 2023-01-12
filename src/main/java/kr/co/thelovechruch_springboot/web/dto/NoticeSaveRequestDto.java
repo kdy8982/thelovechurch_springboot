@@ -1,5 +1,6 @@
 package kr.co.thelovechruch_springboot.web.dto;
 
+import kr.co.thelovechruch_springboot.domain.notice.Notice;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,4 +29,14 @@ public class NoticeSaveRequestDto {
                 ", author='" + author + '\'' +
                 '}';
     }
+
+
+    public Notice toEntity() {
+        return Notice.builder()
+                .title(title)
+                .content(content)
+                .author(author)
+                .build();
+    }
+
 }
