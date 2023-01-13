@@ -2,6 +2,8 @@ package kr.co.thelovechruch_springboot.web;
 
 import kr.co.thelovechruch_springboot.service.notice.NoticeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,8 +16,8 @@ public class NoticeController {
 
 
     @GetMapping("/notice")
-    public String notice(Model model) {
-        model.addAttribute("notices", noticeService.findAll());
+    public String notice(Model model, @PageableDefault(size=10) Pageable pageable) {
+        model.addAttribute("notices", noticeService.findAll(pageable));
 
         return "notice/notice-list";
     }

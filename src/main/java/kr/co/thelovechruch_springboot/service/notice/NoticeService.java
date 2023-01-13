@@ -4,6 +4,7 @@ import kr.co.thelovechruch_springboot.domain.notice.NoticeRepository;
 import kr.co.thelovechruch_springboot.web.dto.notice.NoticeListResponseDto;
 import kr.co.thelovechruch_springboot.web.dto.notice.NoticeSaveRequestDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,10 +21,10 @@ public class NoticeService {
         return noticeRepository.save(requestDto.toEntity()).getId();
     }
 
-    public List<NoticeListResponseDto> findAll() {
+    public List<NoticeListResponseDto> findAll(Pageable pageable) {
 
         System.out.println();
-        return noticeRepository.findAllDesc().stream()
+        return noticeRepository.findAllDesc(pageable).stream()
                 .map(NoticeListResponseDto::new)
                 .collect(Collectors.toList());
     }
