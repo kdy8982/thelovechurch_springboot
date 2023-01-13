@@ -1,0 +1,30 @@
+spring:
+  datasource:
+#    url: jdbc:h2:mem:test
+    url: jdbc:h2:tcp://localhost/~/testdb;MODE=MYSQL
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL57Dialect
+      #      show_sql: true
+      format_sql: true
+  data:
+    web:
+      pageable:
+        one-indexed-parameters: true
+logging:
+  level:
+    org.hibernate.SQL: debug
+    # sql parameter를 보여준다. 하지만 p6spy 사용하는게 더 편리함.
+    # org.hibernate.type: trace
+
+server:
+  servlet:
+    encoding:
+      force-response: true

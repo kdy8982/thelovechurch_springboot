@@ -24,18 +24,19 @@
             </tbody>
         </table>
         <ul class="paging">
-            <li><a href="#">< 이전</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">6</a></li>
-            <li><a href="#">7</a></li>
-            <li><a href="#">8</a></li>
-            <li><a href="#">9</a></li>
-            <li><a href="#">10</a></li>
-            <li><a href="#">다음 ></a></li>
+            {{#pageInfo}}
+                {{#isPrevExist}}
+                    <li><a href="/notice?page={{prevBlockNum}}">< 이전</a></li>
+                {{/isPrevExist}}
+                {{#pageList}}
+                    <li>
+                        <a href="/notice?page={{.}}">{{.}}</a>
+                    </li>
+                {{/pageList}}
+                {{#isNextExist}}
+                    <li><a href="/notice?page={{nextBlockNum}}">다음 ></a></li>
+                {{/isNextExist}}
+            {{/pageInfo}}
         </ul>
         <button class="bttn-minimal bttn-xs bttn-default flr" onclick="location.href='notice/new'">새 글 작성
         </button>

@@ -28,4 +28,8 @@ public class NoticeService {
                 .map(NoticeListResponseDto::new)
                 .collect(Collectors.toList());
     }
+
+    public long count() {
+        return noticeRepository.count();
+    }
 }
