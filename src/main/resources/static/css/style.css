@@ -24,14 +24,15 @@ body {
     flex: 1;
 }
 #contents {
-    /*position: absolute;*/
-    /*bottom: 0;*/
+    position: absolute;
+    bottom: 0;
     width: 100%;
     border-bottom: 1px solid #bdbdbd;
+    opacity: 0.8;
     /*background-color: rgb(88 88 88);*/
 }
 #contents .container {
-    background: #676766;
+    background-color: #b6907bfa;
 }
 
 /* 가운데 영역 */
@@ -180,10 +181,17 @@ body {
 }
 .cont_center li {
     padding: 10px;
+    cursor: pointer;
+}
+.cont_center li .title {
+    float: left;
+}
+.cont_center li .write_date {
+    float: right;
 }
 
 /*위에서 살짝 떨어지는 밑줄*/
-.cont_center li a .write_date {
+/*.cont_center li a .write_date {
     color: #fff;
 }
 .cont_center li a .title {
@@ -218,11 +226,10 @@ body {
     -webkit-transform: translateY(0);
     transform: translateY(0);
     opacity: 1;
-}
+}*/
 .cont_center li a .title {
     display: inline-block;
     overflow: hidden;
-    width: 70%;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
@@ -257,7 +264,7 @@ footer {
     margin-top: auto;
     padding: 8px 50px;
     text-align: center;
-    border-top: 1px solid #bdbdbd;
+    /*border-top: 1px solid #bdbdbd;*/
 }
 
 /* 게시판 */
@@ -288,6 +295,9 @@ footer {
 }
 #board_content table .board_title {
     width: 60%;
+}
+#board_content table .board_title a {
+    display: block;
 }
 #board_content table .board_writer {
     width: 20%;
@@ -548,7 +558,6 @@ ul.paging li {
         padding: unset;
     }
     .cont_center li a .title {
-        width: 50%;
     }
 
 }

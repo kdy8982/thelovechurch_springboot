@@ -8,6 +8,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Map;
 
@@ -19,7 +20,7 @@ public class NoticeController {
 
 
     @GetMapping("/notice")
-    public String notice(Model model, @PageableDefault(size = 5, page = 1) Pageable pageable) {
+    public String notice(Model model, @PageableDefault(size = 5, page = 0) Pageable pageable) {
         try {
             Paginator paginator = new Paginator(10, pageable.getPageSize() ,  noticeService.count());
             Map<String, Object> pageInfo = paginator.getFixedBlock(pageable.getPageNumber() + 1);
@@ -38,5 +39,23 @@ public class NoticeController {
     @GetMapping("/notice/new")
     public String createForm() {
         return "notice/notice-save";
+    }
+
+    @GetMapping("/notice/{itemId}/edit")
+    public String editForm(@PathVariable("itemId") Long itemId, Model model) {
+
+        model.addAttribute("notice", noticeService.findById(itemId));
+
+        return "notice/notice-edit";
+    }
+
+
+
+    @GetMapping("/notice/{itemId}")
+    public String select(@PathVariable("itemId") Long itemId, Model model) {
+
+        model.addAttribute("notice", noticeService.findById(itemId));
+
+        return "notice/notice-select";
     }
 }

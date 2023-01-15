@@ -9,49 +9,32 @@
             <div class="slides slide3"></div>
         </div>
     </div>
-</div>
-<div id="contents">
-    <div class="container clearfix">
-        <div class="cont_left">
-            <h2>새소식</h2>
-        </div>
-        <div class="cont_center">
-            <ul>
-                <li>
-                    <a href="#">
-                        <span class="title">게시글 입니다. 게시글 입니다. 게시글 입니다. 게시글 입니다. 게시글 입니다. 게시글 입니다. 게시글 입니다. 게시글 입니다.</span>
-                        <span class="write_date">2022.12.25</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="title">게시글 입니다. 게시글 입니다. 게시글 입니다. 게시글 입니다. 게시글 입니다. 게시글 입니다. 게시글 입니다. 게시글 입니다.</span>
-                        <span class="write_date">2022.12.25</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="title">게시글 입니다. 게시글 입니다. 게시글 입니다. 게시글 입니다. 게시글 입니다. 게시글 입니다. 게시글 입니다. 게시글 입니다.</span>
-                        <span class="write_date">2022.12.25</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="title">게시글 입니다. 게시글 입니다. 게시글 입니다. 게시글 입니다. 게시글 입니다. 게시글 입니다. 게시글 입니다. 게시글 입니다.</span>
-                        <span class="write_date">2022.12.25</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="icons clearfix">
+
+    <div id="contents">
+        <div class="container clearfix">
+            <div class="cont_left">
+                <h2>새소식</h2>
+            </div>
+            <div class="cont_center">
+                <ul>
+                    {{#notices}}
+                        <li class="clearfix" onclick="location.href='/notice/{{id}}'">
+                            <span class="title">{{title}}</span>
+                            <span class="write_date">{{createdDate}}</span>
+                        </li>
+                    {{/notices}}
+                </ul>
+            </div>
+            <div class="icons clearfix">
                     <span class="icon1">
                         <i class="fas fa-cross"></i>
                             교회안내
                     </span>
-            <span class="icon2">
+                <span class="icon2" onclick="location.href = 'https://us04web.zoom.us/j/5661108777?pwd=NVdsMk0xeExTOEk0YjcwMVQwck9rdz09'" style="cursor:pointer;">
                         <i class="fas fa-video"></i>
                          예배실황
                     </span>
+            </div>
         </div>
     </div>
 </div>

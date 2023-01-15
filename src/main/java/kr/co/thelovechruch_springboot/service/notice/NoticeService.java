@@ -1,7 +1,8 @@
 package kr.co.thelovechruch_springboot.service.notice;
 
+import kr.co.thelovechruch_springboot.domain.notice.Notice;
 import kr.co.thelovechruch_springboot.domain.notice.NoticeRepository;
-import kr.co.thelovechruch_springboot.web.dto.notice.NoticeListResponseDto;
+import kr.co.thelovechruch_springboot.web.dto.notice.NoticeResponseDto;
 import kr.co.thelovechruch_springboot.web.dto.notice.NoticeSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -21,15 +22,21 @@ public class NoticeService {
         return noticeRepository.save(requestDto.toEntity()).getId();
     }
 
-    public List<NoticeListResponseDto> findAll(Pageable pageable) {
+    public List<NoticeResponseDto> findAll(Pageable pageable) {
 
         System.out.println();
         return noticeRepository.findAllDesc(pageable).stream()
-                .map(NoticeListResponseDto::new)
+                .map(NoticeResponseDto::new)
                 .collect(Collectors.toList());
     }
 
     public long count() {
         return noticeRepository.count();
+    }
+
+    public Object findById(Long itemId) {
+        Notice entity = noticeRepository.findById(itemId).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id=" + itemId));
+
+        return new NoticeResponseDto(entity);
     }
 }
