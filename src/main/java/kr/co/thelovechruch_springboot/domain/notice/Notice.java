@@ -1,6 +1,7 @@
 package kr.co.thelovechruch_springboot.domain.notice;
 
 import kr.co.thelovechruch_springboot.domain.BaseTimeEntity;
+import kr.co.thelovechruch_springboot.web.dto.notice.NoticeUpdateRequestDto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,4 +32,8 @@ public class Notice extends BaseTimeEntity {
         this.author = author;
     }
 
+    public void update(NoticeUpdateRequestDto requestDto) {
+        this.title = requestDto.getTitle();
+        this.content =requestDto.getContent();
+    }
 }

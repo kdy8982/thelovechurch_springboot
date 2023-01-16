@@ -20,7 +20,7 @@ public class NoticeController {
 
 
     @GetMapping("/notice")
-    public String notice(Model model, @PageableDefault(size = 5, page = 0) Pageable pageable) {
+    public String noticeListForm(Model model, @PageableDefault(size = 5, page = 0) Pageable pageable) {
         try {
             Paginator paginator = new Paginator(10, pageable.getPageSize() ,  noticeService.count());
             Map<String, Object> pageInfo = paginator.getFixedBlock(pageable.getPageNumber() + 1);
@@ -41,18 +41,18 @@ public class NoticeController {
         return "notice/notice-save";
     }
 
-    @GetMapping("/notice/{itemId}/edit")
+  @GetMapping("/notice/update/{itemId}")
     public String editForm(@PathVariable("itemId") Long itemId, Model model) {
 
         model.addAttribute("notice", noticeService.findById(itemId));
 
-        return "notice/notice-edit";
+        return "/notice/notice-update";
     }
 
 
 
     @GetMapping("/notice/{itemId}")
-    public String select(@PathVariable("itemId") Long itemId, Model model) {
+    public String selectForm(@PathVariable("itemId") Long itemId, Model model) {
 
         model.addAttribute("notice", noticeService.findById(itemId));
 

@@ -454,7 +454,7 @@ ul.paging li {
     display: block;
 
 }
-.write_box input, .write_box textarea {
+.write_box input, .write_box textarea, .write_box .content {
     display: block;
     box-sizing: border-box;
     width: 100%;
@@ -467,11 +467,18 @@ ul.paging li {
 .write_box textarea {
     height: 400px;
 }
-#btn-save {
+.write_box #btn-save {
     float: right;
 }
-.form-group {
+.write_box .form-group {
     margin-bottom: 10px;
+}
+.write_box #btn-update {
+    margin-bottom: 10px;
+}
+
+.write_box #btn-delete {
+    background-color: #f35626;
 }
 
 /* mediaquery */
