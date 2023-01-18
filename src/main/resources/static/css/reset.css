@@ -119,6 +119,10 @@ button {
     height: 0;
     text-indent: -9999px;
 }
+.mt5 {
+    margin-top: 5px;
+!important;
+}
 .mt10 {
     margin-top: 10px;
 !important;

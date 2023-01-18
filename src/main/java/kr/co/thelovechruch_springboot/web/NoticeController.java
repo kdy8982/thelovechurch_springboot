@@ -18,7 +18,6 @@ public class NoticeController {
 
     private final NoticeService noticeService;
 
-
     @GetMapping("/notice")
     public String noticeListForm(Model model, @PageableDefault(size = 5, page = 0) Pageable pageable) {
         try {
@@ -48,8 +47,6 @@ public class NoticeController {
 
         return "/notice/notice-update";
     }
-
-
 
     @GetMapping("/notice/{itemId}")
     public String selectForm(@PathVariable("itemId") Long itemId, Model model) {

@@ -31,7 +31,7 @@ var notice = {
             // summernote
             $('#summernote').summernote({
                 // 에디터 높이
-                height: 150,
+                height: 450,
                 // 에디터 한글 설정
                 lang: "ko-KR",
                 // 에디터에 커서 이동 (input창의 autofocus라고 생각)

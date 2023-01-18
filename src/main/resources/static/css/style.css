@@ -22,12 +22,12 @@ body {
 #banner {
     position: relative;
     flex: 1;
+    background-color: #f2f2f2;
 }
 #contents {
     position: absolute;
     bottom: 0;
     width: 100%;
-    border-bottom: 1px solid #bdbdbd;
     opacity: 0.8;
     /*background-color: rgb(88 88 88);*/
 }
@@ -152,7 +152,7 @@ body {
     line-height: 150px;
     width: 150px;
     height: 150px;
-    margin-top: 27px;
+    margin-top: 20px;
     text-align: center;
     color: #fff;
 }
@@ -175,6 +175,7 @@ body {
     overflow: hidden;
     margin-right: 300px;
     padding: 15px 0;
+    color: #fff;
 }
 .cont_center ul {
     border-right: 1px solid #bdbdbd;
@@ -264,7 +265,7 @@ footer {
     margin-top: auto;
     padding: 8px 50px;
     text-align: center;
-    /*border-top: 1px solid #bdbdbd;*/
+    border-top: 1px solid #bdbdbd;
 }
 
 /* 게시판 */
@@ -288,10 +289,12 @@ footer {
 }
 #board_content {
     flex: 1;
+    background-color: #f2f2f2;
 }
 #board_content table {
     width: 100%;
     margin-top: 30px;
+    background-color: #fff;
 }
 #board_content table .board_title {
     width: 60%;
@@ -476,9 +479,58 @@ ul.paging li {
 .write_box #btn-update {
     margin-bottom: 10px;
 }
-
 .write_box #btn-delete {
     background-color: #f35626;
+}
+.write_box img {
+    width: 80% !important;
+}
+
+/* 로그인 */
+#login {
+    height: 100%;
+    background-color: #f2f2f2;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url("../img/everywallisadoor.jpeg");
+    background-repeat: no-repeat;
+    background-position: 0% 100%;
+    background-size: cover;
+
+}
+#login .login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 40px 50px;
+
+    transform: translate(-50%, -50%);
+    opacity: 0.85;
+    border-radius: 4px;
+    background-color: #ccc;
+}
+#login .login .login-word {
+    font-size: 20px;
+}
+#login .login form {
+    margin-top: 25px;
+}
+#login .login form .form-group {
+    margin-bottom: 10px;
+}
+#login .login form .btn {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 3px 10px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #261111;
+}
+#login input {
+    font-size: 12px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #261111;
+    background-color: transparent;
 }
 
 /* mediaquery */
@@ -508,13 +560,13 @@ ul.paging li {
     }
     ul.menu_mobile {
         top: 75px;
-        left: 0;
+        width: 150px;
         transition: all .4s ease;
         opacity: 0;
-        background: rgba(0, 0, 0, 0.4);
+        background: rgba(0, 0, 0, 0.9);
     }
     ul.menu_mobile.click {
-        top: 75px;
+        top: 60px;
         opacity: 1;
     }
     ul.menu_mobile li {
@@ -528,6 +580,13 @@ ul.paging li {
     }
     #contents {
         border-bottom: none;
+    }
+    .cont_left h2 {
+        margin-top: 3px;
+    }
+
+    #login {
+        background-position: 20% 100%;
     }
 }
 
@@ -553,10 +612,19 @@ ul.paging li {
     .icons > span {
         width: 50%;
     }
+    .write_box {
+        width: 80%;
+    }
 
 }
 /* 화면 너비 0~600px */
 @media (max-width: 600px) {
+    #login .login .login-word {
+        font-size: 20px;
+    }
+    #login .login {
+        padding: 30px 50px;
+    }
 }
 
 /* 화면 너비 0~480px */
@@ -564,9 +632,13 @@ ul.paging li {
     .cont_center {
         padding: unset;
     }
-    .cont_center li a .title {
-    }
 
+    #login .login .login-word {
+        font-size: 16px;
+    }
+    #login .login {
+        padding: 30px 20px;
+    }
 }
 
 /* 화면 너비 0~320px */
