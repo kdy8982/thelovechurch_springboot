@@ -14,9 +14,8 @@ public class UsersApiController {
     private final UsersService usersService;
 
     @PostMapping("/api/users")
-    public Long signUp(@RequestBody UsersSaveRequestDto requestDto) {
-
-        return 1L;
+    public String signUp(@RequestBody UsersSaveRequestDto requestDto) {
+        return usersService.save(requestDto);
     }
 
 }

@@ -22,7 +22,6 @@ var users = {
         $.ajax({
             type: "post",
             url: "/api/users",
-            dataType: "json",
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify(data)
         }).done(function () {

@@ -13,12 +13,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/js/**", "/css/**", "/images/**", "/font/**", "/html/**");
+        web.ignoring().antMatchers("/js/**", "/css/**", "/img/**", "/font/**");
     }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/", "/css/**", "/img/**","/js/**", "/h2-console/**", "/notice")
+                .antMatchers("/", "/css/**", "/img/**","/js/**")
                 .permitAll()
                 .antMatchers("/notice/update/**", "/notice/delete/**")
                 .authenticated();
@@ -36,5 +36,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.exceptionHandling()
                 .accessDeniedPage("/denied");
 
+        http.csrf().disable();
     }
 }

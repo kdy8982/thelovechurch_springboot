@@ -14,6 +14,11 @@ public class UsersSaveRequestDto {
     private String name;
     private String password;
 
+    // private LocalDateTime lastAccessDt;
+    //
+    // private LocalDateTime regDt;
+
+
     @Builder
     public UsersSaveRequestDto(String id, String name, String password) {
         this.id = id;

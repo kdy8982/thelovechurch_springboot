@@ -11,13 +11,15 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class UsersService {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Transactional
     public String save(UsersSaveRequestDto requestDto) {
         Users user = requestDto.toEntity();
         user.setLastAccessDtAndRegDt();
         user.setBCryptEncodedPassword();
+
+
 
         return userRepository.save(user).getId();
     }
