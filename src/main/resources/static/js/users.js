@@ -2,10 +2,6 @@ var users = {
     init: function () {
         var _this = this;
         $(document).ready(function () {
-            $("#btn-sign-in").on("click", function (e) {
-                e.preventDefault();
-                alert("로그인 버튼");
-            })
             $("#btn-sign-up-submit").on("click", function (e) {
                 e.preventDefault();
                 _this.save();

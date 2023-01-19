@@ -18,6 +18,10 @@ spring:
     web:
       pageable:
         one-indexed-parameters: true
+  mustache:
+    servlet:
+      expose-session-attributes: true
+
 logging:
   level:
     org.hibernate.SQL: debug

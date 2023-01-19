@@ -1,4 +1,4 @@
-package kr.co.thelovechruch_springboot.domain.user;
+package kr.co.thelovechruch_springboot.security;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

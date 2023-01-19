@@ -29,9 +29,16 @@
                                 <li>
                                     <a href="/introduce">더사랑교회</a>
                                 </li>
+                                {{^SPRING_SECURITY_CONTEXT}}
+                                    <li>
+                                        <a href="/auth/loginForm">로그인</a>
+                                    </li>
+                                {{/SPRING_SECURITY_CONTEXT}}
+                                {{#SPRING_SECURITY_CONTEXT}}
                                 <li>
-                                    <a href="/login">로그인</a>
+                                    <a href="/logout">로그아웃</a>
                                 </li>
+                                {{/SPRING_SECURITY_CONTEXT}}
                             </ul>
                         </nav>
                         <nav class="menu_mobile">
@@ -40,12 +47,19 @@
                                 <li>
                                     <a href="/notice">새소식</a>
                                 </li>
-                                <li>
-                                    <a href="/introduce">더사랑교회</a>
-                                </li>
-                                <li>
-                                    <a href="/login">로그인</a>
-                                </li>
+                            <li>
+                                <a href="/introduce">더사랑교회</a>
+
+                                {{^SPRING_SECURITY_CONTEXT}}
+                                    <li>
+                                        <a href="/auth/loginForm">로그인</a>
+                                    </li>
+                                {{/SPRING_SECURITY_CONTEXT}}
+                                {{#SPRING_SECURITY_CONTEXT}}
+                                    <li>
+                                        <a href="/logout">로그아웃</a>
+                                    </li>
+                                {{/SPRING_SECURITY_CONTEXT}}
                             </ul>
                         </nav>
                     </div>
