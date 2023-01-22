@@ -16,7 +16,8 @@ var index = {
                 ]
             });
 
-            $(".menu_mobile").click(function () {
+            $(".menu_mobile").click(function (e) {
+                // e.preventDefault();
                 $(".menu_mobile").toggleClass("click");
             });
         })

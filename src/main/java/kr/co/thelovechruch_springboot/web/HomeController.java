@@ -23,6 +23,6 @@ public class HomeController {
         List<NoticeResponseDto> list = noticeService.findAll(pageable);
 
         model.addAttribute("notices", noticeService.findAll(pageable));
-        return "home";
+        return "home.html";
     }
 }

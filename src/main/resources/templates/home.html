@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace="/layout/head :: head">
+    </head>
+    <header th:replace="/layout/header :: header">
+    </header>
+    <body>
+        <div id="banner">
+            <div class="container clearfix">
+                <div class="slider">
+                    <div class="slides slide1"></div>
+                    <div class="slides slide2"></div>
+                    <div class="slides slide3"></div>
+                </div>
+            </div>
+
+            <div id="contents">
+                <div class="container clearfix">
+                    <div class="cont_left">
+                        <h2>새소식</h2>
+                    </div>
+                    <div class="cont_center">
+                        <ul>
+                            <li th:each="notice : ${notices}" class="clearfix">
+                                <a th:href="@{/notice/{id} (id=${notice.id})}">
+                                    <span class="title" th:text="${notice.title}"></span>
+                                    <span class="write_date" th:text="${notice.createdDate}"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="icons clearfix">
+                    <span class="icon1" onclick="location.href='introduce'" style="cursor: pointer;">
+                        <i class="fas fa-cross"></i>
+                            교회안내
+                    </span>
+                        <span class="icon2"
+                              onclick="location.href = 'https://us04web.zoom.us/j/5661108777?pwd=NVdsMk0xeExTOEk0YjcwMVQwck9rdz09'"
+                              style="cursor:pointer;">
+                        <i class="fas fa-video"></i>
+                         예배실황
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer th:replace="/layout/footer :: footer">
+        </footer>
+    </body>
+    <th:block th:replace="/layout/footer-script :: script"></th:block>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace="/layout/head :: head">
+    </head>
+    <header th:replace="/layout/header :: header">
+    </header>
+    <body>
+        <div id="board_banner" class="notice">
+            <h1 class="ir_pm">새소식</h1>
+        </div>
+        <div id="board_content">
+            <div class="container">
+                <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
+                    <thead>
+                    <tr>
+                        <th class="board_title">제목</th>
+                        <th class="board_writer">작성자</th>
+                        <th class="board_date">작성일</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr th:each="notice : ${notices}">
+                        <td class="board_title"><a href="#" th:href="@{/notice/{id} (id=${notice.id})}"
+                                                   th:text="${notice.title}"></a></td>
+                        <td class="board_writer" th:text="${notice.author}"></td>
+                        <td class="board_date" th:text="${notice.createdDate}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <ul class="paging" th:with="start=${blockFirstPageNum}, last=${blockLastPageNum}">
+                    <li th:if="${isPrevExist}">
+                        <a th:href="@{/notice(page=${prevBlockNum})}" th:text="'<'"></a>
+                    </li>
+                    <li th:each="page: ${#numbers.sequence(start, last)}">
+                        <a th:text="${page}" th:href="@{/notice(page=${page})}"></a>
+                    </li>
+                    <li th:if="${isNextExist}">
+                        <a th:href="@{/notice(page=${nextBlockNum})}" th:text="'>'"></a>
+                    </li>
+
+                    <!--<li th:if="${start > 1}">
+                        <a th:href="@{/notice(page=${start - maxPage})}" th:text="'<'"></a>
+                    </li>
+                    <li th:each="page: ${#numbers.sequence(start, last)}">
+                        <a th:text="${page}" th:href="@{/notice(page=${page})}"></a>
+                    </li>
+                    <li th:if="${last < totalPages}">
+                        <a th:href="@{/notice(page=${start + maxPage})}" th:text="'>'"></a>
+                    </li>-->
+                </ul>
+                <button sec:authorize="isAuthenticated()" class="bttn-minimal bttn-xs bttn-default flr" onclick="location.href='notice/new'">새 글 작성
+                </button>
+                <!--        <a class="bttn-bordered bttn-md" href="notice/new">새 글 작성</a>-->
+            </div>
+        </div>
+        <footer th:replace="/layout/footer :: footer">
+        </footer>
+    </body>
+    <th:block th:replace="/layout/footer-script :: script"></th:block>
+
+</html>

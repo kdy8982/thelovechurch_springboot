@@ -228,6 +228,11 @@ body {
     transform: translateY(0);
     opacity: 1;
 }*/
+.cont_center li a{
+    display: inline-block;
+    width: 100%;
+    color: #fff;
+}
 .cont_center li a .title {
     display: inline-block;
     overflow: hidden;
@@ -324,7 +329,7 @@ ul.paging li {
     margin: 0px 5px;
 }
 
-/* introduce; 교회 소개 */
+/* introduce.html; 교회 소개 */
 #introduce_banner {
     min-height: 250px;
     border-bottom: 1px solid #ccc;

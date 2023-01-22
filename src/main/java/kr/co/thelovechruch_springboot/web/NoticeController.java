@@ -21,23 +21,33 @@ public class NoticeController {
     @GetMapping("/notice")
     public String noticeListForm(Model model, @PageableDefault(size = 5, page = 0) Pageable pageable) {
         try {
-            Paginator paginator = new Paginator(10, pageable.getPageSize() ,  noticeService.count());
+            Paginator paginator = new Paginator(2, pageable.getPageSize() ,  noticeService.count());
             Map<String, Object> pageInfo = paginator.getFixedBlock(pageable.getPageNumber() + 1);
             System.out.println();
 
-            model.addAttribute("pageInfo", pageInfo);
+            // model.addAttribute("pageInfo", pageInfo);
+            model.addAttribute("currentPageNum", pageInfo.get("currentPageNum") );
+            model.addAttribute("blockFirstPageNum", pageInfo.get("blockFirstPageNum") );
+            model.addAttribute("blockLastPageNum", pageInfo.get("blockLastPageNum") );
+            model.addAttribute("pagesPerBlock", pageInfo.get("pagesPerBlock"));
+            model.addAttribute("totalLastPageNum", pageInfo.get("totalLastPageNum"));
+            model.addAttribute("isPrevExist", pageInfo.get("isPrevExist"));
+            model.addAttribute("isNextExist", pageInfo.get("isNextExist"));
+            model.addAttribute("prevBlockNum", pageInfo.get("prevBlockNum"));
+            model.addAttribute("nextBlockNum", pageInfo.get("nextBlockNum"));
+
 
             model.addAttribute("notices", noticeService.findAll(pageable));
         } catch (Exception e) {
             System.out.println(e);
         }
 
-        return "notice/notice-list";
+        return "/notice/notice-list";
     }
 
     @GetMapping("/notice/new")
     public String createForm() {
-        return "notice/notice-save";
+        return "/notice/notice-save";
     }
 
   @GetMapping("/notice/update/{itemId}")
@@ -53,6 +63,6 @@ public class NoticeController {
 
         model.addAttribute("notice", noticeService.findById(itemId));
 
-        return "notice/notice-select";
+        return "/notice/notice-select";
     }
 }
