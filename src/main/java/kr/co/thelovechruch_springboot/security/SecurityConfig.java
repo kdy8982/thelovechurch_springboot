@@ -2,6 +2,7 @@ package kr.co.thelovechruch_springboot.security;
 
 import kr.co.thelovechruch_springboot.service.users.UsersService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -36,12 +37,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // .permitAll()
                 .antMatchers("/notice/update/**", "/notice/delete/**")
                 .authenticated();
+        
 
         http.formLogin()
                 .loginPage("/auth/loginForm")
                 .loginProcessingUrl("/auth/loginProc")
                 .defaultSuccessUrl("/")
+                .failureHandler(loginFailHandler())
                 .permitAll();
+
 
         http.logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
@@ -53,5 +57,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .accessDeniedPage("/denied");
 
         http.csrf().disable();
+    }
+
+    @Bean
+    public LoginFailHandler loginFailHandler(){
+        return new LoginFailHandler();
     }
 }

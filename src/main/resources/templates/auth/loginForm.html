@@ -13,6 +13,7 @@
                     <p>IS A DOOR</p>
                     <p>모든 벽은 문이다.</p>
                 </div>
+                <p class="error_text" th:if="${error}" th:text="${exception}"></p>
                 <form action="/auth/loginProc" method="post">
                     <div class="form-group">
                         <input name="username" type="text" class="form-control title" placeholder="아이디">
