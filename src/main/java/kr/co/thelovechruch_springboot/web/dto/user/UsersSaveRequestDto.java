@@ -1,6 +1,7 @@
 package kr.co.thelovechruch_springboot.web.dto.user;
 
 import kr.co.thelovechruch_springboot.domain.user.Users;
+import kr.co.thelovechruch_springboot.security.Role;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,10 +15,6 @@ public class UsersSaveRequestDto {
     private String name;
     private String password;
 
-    // private LocalDateTime lastAccessDt;
-    //
-    // private LocalDateTime regDt;
-
 
     @Builder
     public UsersSaveRequestDto(String id, String name, String password) {
@@ -27,7 +24,7 @@ public class UsersSaveRequestDto {
     }
 
     public Users toEntity() {
-        return new Users(id, name, password);
+        return new Users(id, name, password, Role.GUEST);
     }
 
 }

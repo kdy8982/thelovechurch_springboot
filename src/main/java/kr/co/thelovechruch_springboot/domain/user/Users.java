@@ -1,6 +1,7 @@
 package kr.co.thelovechruch_springboot.domain.user;
 
 import kr.co.thelovechruch_springboot.domain.BaseTimeEntity;
+import kr.co.thelovechruch_springboot.security.Role;
 import lombok.Builder;
 import lombok.Getter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -28,15 +29,21 @@ public class Users {
     @Column
     private LocalDateTime regDt;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
+
+
     public Users() {
 
     }
 
     @Builder
-    public Users(String id, String name, String password) {
+    public Users(String id, String name, String password, Role role) {
         this.id = id;
         this.name = name;
         this.password = password;
+        this.role = role;
     }
 
     public void setLastAccessDtAndRegDt() {
