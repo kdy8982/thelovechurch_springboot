@@ -25,7 +25,8 @@
                         <label for="content">내용</label>
                         <div class="content" th:utext="${notice.content}"></div>
                     </div>
-                    <input type="submit" id="btn-move-update" name="{{notice.id}}" value="수정"/>
+                    <input sec:authorize="isAuthenticated()" type="submit" id="btn-move-update" th:name="${notice.id}" value="수정"/>
+
                 </form>
             </div>
         </div>
