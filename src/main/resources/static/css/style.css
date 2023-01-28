@@ -146,13 +146,14 @@ body {
 .cont_left {
     float: left;
     color: #fff;
+    border-right: 1px solid #bdbdbd;
 }
 .cont_left h2 {
     font-size: 25px;
     line-height: 150px;
     width: 150px;
-    height: 150px;
-    margin-top: 20px;
+    height: 160px;
+    margin-top: 10px;
     text-align: center;
     color: #fff;
 }
@@ -174,13 +175,13 @@ body {
 .cont_center {
     overflow: hidden;
     margin-right: 300px;
-    padding: 15px 0;
+    /*padding: 15px 0;*/
     color: #fff;
     /*background: #bf815ffa;*/
 }
 .cont_center ul {
-    border-left: 2px solid #bdbdbd;
-    border-right: 2px solid #bdbdbd;
+    /*border-left: 2px solid #bdbdbd;*/
+    /*border-right: 2px solid #bdbdbd;*/
 }
 .cont_center li {
     padding: 10px;
@@ -238,6 +239,7 @@ body {
 .cont_center li a .title {
     display: inline-block;
     overflow: hidden;
+    width: calc(100% - 150px);
     white-space: nowrap;
     text-overflow: ellipsis;
 }
@@ -250,8 +252,10 @@ body {
     top: 50%;
     right: 0;
     width: 300px;
+    height: 100%;
     transform: translateY(-50%);
     color: #fff;
+    border-left: 1px solid #bdbdbd;
 }
 
 .icons > span {
@@ -263,7 +267,7 @@ body {
 .icons > span i {
     font-size: 30px;
     display: block;
-    margin-top: 40px;
+    margin-top: 54px;
     margin-bottom: 10px;
 }
 
@@ -372,6 +376,9 @@ ul.paging li {
     width: 0.5px;
     content: "|";
     color: #ebebeb;
+}
+#introduce_content ul li:first-child:before {
+    display: none;
 }
 #introduce_content ul li:after {
     position: absolute;
@@ -631,6 +638,9 @@ ul.paging li {
         width: 80%;
     }
 
+    #introduce_content ul li {
+        font-size: 15px;
+    }
 }
 /* 화면 너비 0~600px */
 @media (max-width: 600px) {
@@ -639,6 +649,14 @@ ul.paging li {
     }
     #login .login {
         padding: 30px 50px;
+    }
+
+    .cont_center li a .title {
+        width: calc(100% - 90px);
+    }
+
+    #board_banner.notice {
+        background-position: 32% 5%;
     }
 }
 
@@ -654,9 +672,23 @@ ul.paging li {
     #login .login {
         padding: 30px 20px;
     }
+    #introduce_content ul li {
+        margin: 0px 10px;
+    }
+    #introduce_content ul li:before {
+        left: -13px;
+    }
 }
 
-/* 화면 너비 0~320px */
-@media (max-width: 320px) {
-
+/* 화면 너비 0~340px */
+@media (max-width: 340px) {
+    #introduce_content ul li{
+        margin: 0px 4px;
+    }
+    #introduce_content ul li:before {
+        left: -8px;
+    }
+    #introduce_content ul li {
+        font-size: 12px;
+    }
 }
