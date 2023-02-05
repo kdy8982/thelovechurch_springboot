@@ -5,6 +5,7 @@ import kr.co.thelovechruch_springboot.util.Paginator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,9 +20,9 @@ public class NoticeController {
     private final NoticeService noticeService;
 
     @GetMapping("/notice")
-    public String noticeListForm(Model model, @PageableDefault(size = 5, page = 0) Pageable pageable) {
+    public String noticeListForm(Model model, @PageableDefault(size = 10, page = 0) Pageable pageable) { // 한 페이지당 보일 게시글 수
         try {
-            Paginator paginator = new Paginator(2, pageable.getPageSize() ,  noticeService.count());
+            Paginator paginator = new Paginator(10, pageable.getPageSize() ,  noticeService.count()); // 한번에 보일 페이지 수
             Map<String, Object> pageInfo = paginator.getFixedBlock(pageable.getPageNumber() + 1);
             System.out.println();
 
@@ -36,7 +37,6 @@ public class NoticeController {
             model.addAttribute("prevBlockNum", pageInfo.get("prevBlockNum"));
             model.addAttribute("nextBlockNum", pageInfo.get("nextBlockNum"));
 
-
             model.addAttribute("notices", noticeService.findAll(pageable));
         } catch (Exception e) {
             System.out.println(e);
@@ -45,6 +45,7 @@ public class NoticeController {
         return "/notice/notice-list";
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/notice/new")
     public String createForm() {
         return "/notice/notice-save";
