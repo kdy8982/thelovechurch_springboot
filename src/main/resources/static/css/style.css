@@ -543,6 +543,7 @@ ul.paging li {
     cursor: pointer;
     text-align: center;
     border: 1px solid #261111;
+    margin-top: 5px;
 }
 #login input {
     font-size: 12px;
