@@ -2,6 +2,7 @@ package kr.co.thelovechruch_springboot.security;
 
 import kr.co.thelovechruch_springboot.domain.user.Users;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class PrincipalDetail implements UserDetails {
 
     @Override
     public String getUsername() {
-        return user.getId();
+        return user.getName();
     }
 
     //계정이 만료되지 않았는지 리턴 (true: 만료안됨)
@@ -51,12 +52,9 @@ public class PrincipalDetail implements UserDetails {
     //계정이 갖고있는 권한 목록은 리턴
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-
-        Collection<GrantedAuthority> collectors = new ArrayList<>();
-        collectors.add(() -> {
-            return "ROLE_USER";
-        });
-        return collectors;
+        Collection<GrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority(user.getRole().name()));
+        return authorities;
     }
 
 }

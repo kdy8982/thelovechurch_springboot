@@ -1,9 +1,13 @@
 package kr.co.thelovechruch_springboot.web.dto.notice;
 
 import kr.co.thelovechruch_springboot.domain.notice.Notice;
+import kr.co.thelovechruch_springboot.security.PrincipalDetail;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+
+import java.security.Principal;
 
 @Getter
 @NoArgsConstructor
@@ -39,4 +43,7 @@ public class NoticeSaveRequestDto {
                 .build();
     }
 
+    public void setPrincipalUserId(@AuthenticationPrincipal PrincipalDetail principalDetail) {
+        this.author = principalDetail.getUsername();
+    }
 }
