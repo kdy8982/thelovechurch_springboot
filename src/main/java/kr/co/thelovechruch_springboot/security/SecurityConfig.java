@@ -30,14 +30,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/js/**", "/css/**", "/img/**", "/font/**");
     }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                // .antMatchers("/", "/css/**", "/img/**","/js/**")
-                // .permitAll()
-                .antMatchers("/notice/update/**", "/notice/delete/**")
-                .authenticated();
-        
+                .antMatchers("/", "/css/**", "/img/**", "/js/**")
+                .permitAll()
+                .antMatchers("/notice/update/**", "/notice/delete/**", "/notice/new")
+                .hasAuthority("ADMIN");
+
 
         http.formLogin()
                 .loginPage("/auth/loginForm")
@@ -54,13 +55,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .deleteCookies("JSESSiIONID"); // 쿠키 삭제
 
         http.exceptionHandling()
-                .accessDeniedPage("/denied");
+                .accessDeniedPage("/");
 
         http.csrf().disable();
     }
 
     @Bean
-    public LoginFailHandler loginFailHandler(){
+    public LoginFailHandler loginFailHandler() {
         return new LoginFailHandler();
     }
 }
