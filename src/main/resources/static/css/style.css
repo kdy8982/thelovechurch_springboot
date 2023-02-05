@@ -146,7 +146,6 @@ body {
 .cont_left {
     float: left;
     color: #fff;
-    border-right: 1px solid #bdbdbd;
 }
 .cont_left h2 {
     font-size: 25px;
@@ -155,6 +154,11 @@ body {
     height: 160px;
     margin-top: 10px;
     text-align: center;
+    color: #fff;
+}
+.cont_left h2 a {
+    display: block;
+    cursor: pointer;
     color: #fff;
 }
 .cont_left ul {
@@ -175,13 +179,10 @@ body {
 .cont_center {
     overflow: hidden;
     margin-right: 300px;
-    /*padding: 15px 0;*/
     color: #fff;
-    /*background: #bf815ffa;*/
+    border-left: 1px solid #bdbdbd;
 }
 .cont_center ul {
-    /*border-left: 2px solid #bdbdbd;*/
-    /*border-right: 2px solid #bdbdbd;*/
 }
 .cont_center li {
     padding: 10px;
@@ -683,7 +684,7 @@ ul.paging li {
 
 /* 화면 너비 0~340px */
 @media (max-width: 340px) {
-    #introduce_content ul li{
+    #introduce_content ul li {
         margin: 0px 4px;
     }
     #introduce_content ul li:before {
